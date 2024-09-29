@@ -401,9 +401,9 @@ def setup_environment(ctx):
         ctx.env.CFLAGS_default.append('-march=%s' % ctx.env.MARCH)
         ctx.env.CXXFLAGS_default.append('-march=%s' % ctx.env.MARCH)
 
-    ctx.env.INCLUDES_default  = [ctx.path.abspath()]
-    ctx.env.LIB_default       = ['rt']
-    ctx.env.LINKFLAGS_default = ['-pthread']
+    ctx.env.INCLUDES_default  = [ctx.path.abspath(), '/opt/homebrew/include']
+    ctx.env.LIB_default       = []
+    ctx.env.LINKFLAGS_default = ['-pthread', '-luv', '-L/opt/homebrew/lib']
 
     ctx.env.DEFINES_default   = ['_LARGEFILE_SOURCE', '_FILE_OFFSET_BITS=64']
     for k in ctx.env.keys():

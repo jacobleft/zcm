@@ -69,7 +69,7 @@ static string makeAccessor(const ZCMMember& zm, const string& obj)
     ret += obj + (obj.size() == 0 ? "" : ".") + zm.membername;
     for (size_t d = 0 ; d < zm.dimensions.size(); ++d) {
         char buf[10];
-        sprintf(buf,"[%c]", 'a'+(int)d);
+        snprintf(buf, sizeof(buf), "[%c]", 'a'+(int)d);
         ret += buf;
     }
     return ret;
@@ -82,7 +82,7 @@ static string makeAccessorArray(const ZCMMember& zm, const string& obj)
     ret += obj + (obj.size() == 0 ? "" : ".") + zm.membername;
     for (size_t d = 0 ; d < zm.dimensions.size()-1; ++d) {
         char buf[10];
-        sprintf(buf,"[%c]", 'a'+(int)d);
+        snprintf(buf, sizeof(buf), "[%c]", 'a'+(int)d);
         ret += buf;
     }
     return ret;
